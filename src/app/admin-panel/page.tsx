@@ -1,4 +1,5 @@
 import React from 'react';
+export const dynamic = 'force-dynamic';
 import AppLayout from '@/components/AppLayout';
 import AdminPanelContent from './components/AdminPanelContent';
 
