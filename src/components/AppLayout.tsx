@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '../../firebase';
 import Sidebar from './Sidebar';
@@ -29,7 +29,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       if (user) {
         try {
           const idToken = await user.getIdToken();
-          const res = await fetch('http://localhost:8080/api/users/me', {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/me`, {
             headers: { Authorization: `Bearer ${idToken}` },
           });
           if (res.ok) {
@@ -65,15 +65,17 @@ export default function AppLayout({ children }: AppLayoutProps) {
         />
       )}
 
-      <Sidebar
-        collapsed={sidebarCollapsed}
-        mobileOpen={mobileSidebarOpen}
-        onToggleCollapse={() => setSidebarCollapsed((p) => !p)}
-        onMobileClose={() => setMobileSidebarOpen(false)}
-        userRole={userRole}
-        userName={userName}
-        userDepartment={userDepartment}
-      />
+      <Suspense fallback={null}>
+        <Sidebar
+          collapsed={sidebarCollapsed}
+          mobileOpen={mobileSidebarOpen}
+          onToggleCollapse={() => setSidebarCollapsed((p) => !p)}
+          onMobileClose={() => setMobileSidebarOpen(false)}
+          userRole={userRole}
+          userName={userName}
+          userDepartment={userDepartment}
+        />
+      </Suspense>
 
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Mobile topbar */}
