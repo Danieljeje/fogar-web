@@ -278,7 +278,7 @@ export default function AuthScreen() {
                 <input
                   type="email"
                   autoComplete="email"
-                  placeholder="you@fullnessofgod.ng"
+                  placeholder="your email address"
                   className={`input-field ${loginForm.formState.errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-200' : ''}`}
                   {...loginForm.register('email', {
                     required: 'Email is required',
