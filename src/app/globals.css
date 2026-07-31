@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: #F5F3FF;
+    --background: #EDE9FE;
     --foreground: #1E1B4B;
     --primary: #7C3AED;
     --primary-foreground: #FFFFFF;
@@ -146,7 +146,21 @@
   }
 
   .card {
-    @apply bg-card rounded-xl border border-border shadow-sm;
+    @apply bg-card rounded-xl border border-border shadow-card;
+  }
+
+  .card-accent {
+    @apply bg-card rounded-xl border border-border shadow-card relative overflow-hidden;
+  }
+
+  .card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
   }
 
   .badge {
