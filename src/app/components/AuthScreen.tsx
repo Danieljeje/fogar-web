@@ -358,7 +358,7 @@ export default function AuthScreen() {
                   <label className="block text-sm font-semibold text-foreground mb-1.5">First Name</label>
                   <input
                     type="text"
-                    placeholder="Adaeze"
+                    placeholder="your first name"
                     className={`input-field ${signupForm.formState.errors.firstName ? 'border-red-400' : ''}`}
                     {...signupForm.register('firstName', { required: 'First name is required' })}
                   />
@@ -370,7 +370,7 @@ export default function AuthScreen() {
                   <label className="block text-sm font-semibold text-foreground mb-1.5">Last Name</label>
                   <input
                     type="text"
-                    placeholder="Okonkwo"
+                    placeholder="your last name"
                     className={`input-field ${signupForm.formState.errors.lastName ? 'border-red-400' : ''}`}
                     {...signupForm.register('lastName', { required: 'Last name is required' })}
                   />
@@ -384,7 +384,7 @@ export default function AuthScreen() {
                 <label className="block text-sm font-semibold text-foreground mb-1.5">Email Address</label>
                 <input
                   type="email"
-                  placeholder="you@fullnessofgod.ng"
+                  placeholder="your email address"
                   className={`input-field ${signupForm.formState.errors.email ? 'border-red-400' : ''}`}
                   {...signupForm.register('email', {
                     required: 'Email is required',
