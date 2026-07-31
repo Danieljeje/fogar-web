@@ -15,8 +15,6 @@ interface SidebarProps {
   userDepartment: string;
 }
 
-// Member nav badges (Roster: 2, Prayer Vault: 5) are still fake/hardcoded —
-// not touched here, since only the admin sidebar badges were flagged.
 const memberNavItems = [
   { key: 'nav-dashboard', label: 'My Dashboard', href: '/member-dashboard?tab=overview', icon: Home, badge: null },
   { key: 'nav-roster', label: 'My Roster', href: '/member-dashboard?tab=roster', icon: Calendar, badge: null },
@@ -26,9 +24,6 @@ const memberNavItems = [
   { key: 'nav-profile', label: 'My Profile', href: '/member-dashboard?tab=profile', icon: User, badge: null },
 ];
 
-// NOTE: badges removed from Members ('3' was tied to a status field that no
-// longer exists) and Rosters & Schedules ('7' has no backend at all yet).
-// Prayer Moderation's badge is now computed live below instead of hardcoded.
 const adminNavItemsBase = [
   { key: 'nav-admin-dash', label: 'Admin Dashboard', href: '/admin-panel?tab=overview', icon: LayoutGrid },
   { key: 'nav-members', label: 'Members', href: '/admin-panel?tab=members', icon: Users },
@@ -80,9 +75,9 @@ export default function Sidebar({
     : memberNavItems;
 
   const roleColor = {
-    admin: 'bg-red-50 text-red-700 border border-red-200',
-    pastor: 'bg-secondary text-secondary-foreground border border-primary/20',
-    member: 'bg-amber-50 text-amber-700 border border-amber-200',
+    admin: 'bg-red-500/20 text-red-300 border border-red-500/30',
+    pastor: 'bg-primary/20 text-primary-foreground border border-primary/30',
+    member: 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
   }[userRole];
 
   const roleLabel = { admin: 'Admin', pastor: 'Pastor', member: 'Member' }[userRole];
@@ -90,20 +85,20 @@ export default function Sidebar({
   return (
     <aside
       className={[
-        'fixed top-0 left-0 h-full z-50 flex flex-col bg-card border-r border-border transition-all duration-300 ease-in-out shadow-sm',
+        'fixed top-0 left-0 h-full z-50 flex flex-col bg-[#1E1B4B] border-r border-[#37336E] transition-all duration-300 ease-in-out shadow-sm',
         'lg:relative lg:translate-x-0',
         mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
         collapsed ? 'w-16' : 'w-64',
       ].join(' ')}
     >
       {/* Logo */}
-      <div className={`flex items-center border-b border-border h-16 px-4 ${collapsed ? 'justify-center' : 'justify-between'}`}>
+      <div className={`flex items-center border-b border-[#37336E] h-16 px-4 ${collapsed ? 'justify-center' : 'justify-between'}`}>
         {!collapsed && (
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0 shadow-sm">
               <Church className="w-4.5 h-4.5 text-white" />
             </div>
-            <span className="font-extrabold text-base text-foreground tracking-widest">FOGAR</span>
+            <span className="font-extrabold text-base text-white tracking-widest">FOGAR</span>
           </div>
         )}
         {collapsed && (
@@ -113,16 +108,16 @@ export default function Sidebar({
         )}
         <button
           onClick={onToggleCollapse}
-          className="hidden lg:flex p-1.5 rounded-lg hover:bg-muted transition-colors"
+          className="hidden lg:flex p-1.5 rounded-lg hover:bg-white/10 transition-colors"
           aria-label="Toggle sidebar"
         >
-          <ChevronLeft className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${collapsed ? 'rotate-180' : ''}`} />
+          <ChevronLeft className={`w-4 h-4 text-[#B4AFE0] transition-transform duration-300 ${collapsed ? 'rotate-180' : ''}`} />
         </button>
         <button
           onClick={onMobileClose}
-          className="lg:hidden p-1.5 rounded-lg hover:bg-muted transition-colors"
+          className="lg:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors"
         >
-          <X className="w-4 h-4 text-muted-foreground" />
+          <X className="w-4 h-4 text-[#B4AFE0]" />
         </button>
       </div>
 
@@ -139,7 +134,7 @@ export default function Sidebar({
       {/* Nav section label */}
       {!collapsed && (
         <div className="px-4 pt-5 pb-2">
-          <p className="section-label">Navigation</p>
+          <p className="text-xs font-semibold tracking-widest uppercase text-[#8B85C4]">Navigation</p>
         </div>
       )}
 
@@ -160,11 +155,11 @@ export default function Sidebar({
                     'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group relative',
                     isActive
                       ? 'bg-primary text-white shadow-sm'
-                      : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                      : 'text-[#B4AFE0] hover:bg-white/10 hover:text-white',
                     collapsed ? 'justify-center' : '',
                   ].join(' ')}
                 >
-                  <NavIcon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-white' : 'text-muted-foreground group-hover:text-primary'}`} />
+                  <NavIcon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-white' : 'text-[#8B85C4] group-hover:text-white'}`} />
                   {!collapsed && (
                     <>
                       <span className="flex-1 truncate">{item.label}</span>
@@ -181,7 +176,7 @@ export default function Sidebar({
                     </>
                   )}
                   {collapsed && item.badge && (
-                    <span className="absolute top-1 right-1 w-2 h-2 bg-yellow-400 rounded-full ring-2 ring-card" />
+                    <span className="absolute top-1 right-1 w-2 h-2 bg-yellow-400 rounded-full ring-2 ring-[#1E1B4B]" />
                   )}
                 </Link>
               </li>
@@ -191,7 +186,7 @@ export default function Sidebar({
       </nav>
 
       {/* User profile bottom */}
-      <div className="border-t border-border p-3">
+      <div className="border-t border-[#37336E] p-3">
         {collapsed ? (
           <div className="flex justify-center">
             <div className="w-9 h-9 rounded-full gradient-primary flex items-center justify-center text-white text-xs font-bold shadow-sm">
@@ -204,11 +199,11 @@ export default function Sidebar({
               {userName.charAt(0)}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-foreground truncate">{userName}</p>
-              <p className="text-xs text-muted-foreground truncate">{userDepartment}</p>
+              <p className="text-sm font-semibold text-white truncate">{userName}</p>
+              <p className="text-xs text-[#8B85C4] truncate">{userDepartment}</p>
             </div>
-            <Link href="/" className="p-1.5 rounded-lg hover:bg-muted transition-colors" title="Sign out">
-              <LogOut className="w-4 h-4 text-muted-foreground hover:text-red-500 transition-colors" />
+            <Link href="/" className="p-1.5 rounded-lg hover:bg-white/10 transition-colors" title="Sign out">
+              <LogOut className="w-4 h-4 text-[#8B85C4] hover:text-red-400 transition-colors" />
             </Link>
           </div>
         )}
