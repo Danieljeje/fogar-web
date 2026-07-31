@@ -56,9 +56,7 @@ async function loadDashboard() {
   }
 }
 
-  // "Volunteer Coverage" and "Pending Approvals" cards are still removed —
-  // no roster system or member-approval status field exists yet. Media
-  // Uploads is back now that the Media Library backend is real.
+  
   const kpis = [
     {
       id: 'members',

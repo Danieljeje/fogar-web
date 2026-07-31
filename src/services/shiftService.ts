@@ -8,7 +8,7 @@ export interface Shift {
     lastName: string;
   };
   serviceType: string;
-  serviceDate: string; // ISO yyyy-MM-dd
+  serviceDate: string; 
   serviceTime: string;
   department: string;
   role: string;
@@ -21,7 +21,7 @@ export interface Shift {
 export type CreateShiftPayload = {
   memberId: number;
   serviceType: string;
-  serviceDate: string; // yyyy-MM-dd
+  serviceDate: string; 
   serviceTime: string;
   department: string;
   role: string;

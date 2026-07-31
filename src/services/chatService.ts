@@ -1,6 +1,6 @@
 import { apiRequest } from "./apiClient";
 
-// ASSUMPTION: mirrors backend ChatThread/ChatMessage entities.
+
 export interface ChatThread {
   id: number;
   member: {
@@ -29,12 +29,12 @@ export interface ChatMessage {
 }
 
 export const chatService = {
-  // Admin view — every thread across every member.
+
   getAllThreads(): Promise<ChatThread[]> {
     return apiRequest<ChatThread[]>("/api/chat/threads");
   },
 
-  // Member view — just their own thread(s).
+ 
   getMyThreads(): Promise<ChatThread[]> {
     return apiRequest<ChatThread[]>("/api/chat/threads/mine");
   },

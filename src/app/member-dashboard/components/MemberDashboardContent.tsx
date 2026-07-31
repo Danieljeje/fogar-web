@@ -50,7 +50,7 @@ export default function MemberDashboardContent() {
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
           <p className="section-label mb-1">Member Dashboard</p>
-          <h1 className="text-2xl font-bold text-foreground">Good morning, {displayName} 👋</h1>
+          <h1 className="text-2xl font-bold text-foreground">Good morning, {displayName} </h1>
           <p className="text-muted-foreground text-sm mt-1">{today}</p>
         </div>
         {activeSection === 'prayer' && (
@@ -63,7 +63,7 @@ export default function MemberDashboardContent() {
         )}
       </div>
 
-      {/* Section tabs — same pattern as AdminPanelContent */}
+      
       <div className="flex items-center gap-0 bg-muted rounded-xl p-1 w-full overflow-x-auto scrollbar-thin">
         {tabs.map((tab) => (
           <button

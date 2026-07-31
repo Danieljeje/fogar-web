@@ -7,9 +7,9 @@ import DepartmentVolunteerChart from './DepartmentVolunteerChart';
 import MediaLibraryGrid from './MediaLibraryGrid';
 import { useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
-import { prayerService, PrayerRequest } from '@/services/prayerService'; // ADJUST PATH if your alias differs
-import { userService, User } from '@/services/userService'; // ADJUST PATH if your alias differs
-import { shiftService, Shift } from '@/services/shiftService'; // ADJUST PATH if your alias differs
+import { prayerService, PrayerRequest } from '@/services/prayerService'; 
+import { userService, User } from '@/services/userService'; 
+import { shiftService, Shift } from '@/services/shiftService'; 
 
 type ActiveSection = 'overview' | 'members' | 'departments' | 'rosters' | 'media' | 'prayer';
 
@@ -130,10 +130,7 @@ function DepartmentsSection() {
     }
   }
 
-  // Member counts are computed client-side from the two calls above rather
-  // than a dedicated backend aggregate — fine at this scale, but if the
-  // member list grows large this should become a real GROUP BY query
-  // (e.g. GET /api/users/departments/counts) instead.
+  
   const summaries: DepartmentSummary[] = departments
     .map((name) => ({
       name,

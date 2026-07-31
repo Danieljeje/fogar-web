@@ -3,11 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { mediaService, MediaItem } from '@/services/mediaService';
 
-// Real in-app streaming (chunked delivery, low-bandwidth transcoding) doesn't
-// exist on the backend — this opens the stored link in a new tab instead,
-// same pattern as the admin Media Library. Duration, play counts, and
-// video/audio type are gone (not tracked); "New" is derived from createdAt
-// (uploaded in the last 3 days), which IS real.
+
 function isRecent(createdAt: string): boolean {
   return Date.now() - new Date(createdAt).getTime() < 3 * 24 * 60 * 60 * 1000;
 }

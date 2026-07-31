@@ -24,8 +24,7 @@ const roleConfig: Record<UiRole, { label: string; className: string }> = {
   member: { label: 'Member', className: 'badge-neutral' },
 };
 
-// Backend stores role as an uppercase String ("ADMIN"/"PASTOR"/"MEMBER").
-// These two just convert between that and the lowercase union the UI uses.
+
 function toUiRole(backendRole: string): UiRole {
   const lower = backendRole.toLowerCase();
   return (roleOptions as readonly string[]).includes(lower) ? (lower as UiRole) : 'member';

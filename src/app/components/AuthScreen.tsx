@@ -168,12 +168,12 @@ export default function AuthScreen() {
     <div className="min-h-screen flex">
       {/* Left panel — branding */}
       <div className="hidden lg:flex lg:w-[52%] xl:w-[55%] gradient-primary flex-col justify-between p-10 xl:p-14 relative overflow-hidden">
-        {/* Background decorative circles */}
+       
         <div className="absolute top-[-80px] right-[-80px] w-72 h-72 rounded-full bg-white/5" />
         <div className="absolute bottom-[-60px] left-[-60px] w-56 h-56 rounded-full bg-white/5" />
         <div className="absolute top-1/2 right-[-40px] w-40 h-40 rounded-full bg-yellow-300/10" />
 
-        {/* Logo */}
+        
         <div className="relative z-10 flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-yellow-300/20 flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-yellow-300" strokeWidth={2} />
@@ -181,7 +181,7 @@ export default function AuthScreen() {
           <span className="font-extrabold text-xl text-white tracking-widest">FOGAR</span>
         </div>
 
-        {/* Center content */}
+       
         <div className="relative z-10">
           <p className="text-yellow-300/90 text-sm font-semibold mb-3 tracking-widest uppercase">Fullness of God Church</p>
           <h1 className="text-hero text-white mb-5 leading-tight">
@@ -191,7 +191,7 @@ export default function AuthScreen() {
             Manage your volunteer schedule, join the prayer wall, and access sermon archives — all from one secure platform built for your church family.
           </p>
 
-          {/* Feature highlights */}
+          
           <div className="space-y-3">
             {FEATURES.map((f) => {
               const Icon = f.icon;
@@ -210,7 +210,7 @@ export default function AuthScreen() {
           </div>
         </div>
 
-        {/* Scripture */}
+       
         <div className="relative z-10">
           <blockquote className="text-white/70 text-sm italic leading-relaxed border-l-2 border-yellow-300/50 pl-4">
             &ldquo;For where two or three gather in my name, there am I with them.&rdquo;
@@ -219,10 +219,10 @@ export default function AuthScreen() {
         </div>
       </div>
 
-      {/* Right panel — form */}
+     
       <div className="flex-1 flex flex-col justify-center items-center px-6 py-10 lg:px-12 xl:px-16 bg-background overflow-y-auto">
         <div className="w-full max-w-md">
-          {/* Mobile logo */}
+          
           <div className="flex items-center gap-2 mb-8 lg:hidden">
             <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-yellow-300" strokeWidth={2} />
@@ -237,7 +237,7 @@ export default function AuthScreen() {
             {activeTab === 'login' ? 'Welcome back to Fullness of God Church' : 'Join the Fullness of God Church digital community'}
           </p>
 
-          {/* Tabs */}
+         
           <div className="flex bg-muted rounded-xl p-1 mb-6">
             {(['login', 'signup'] as const).map((tab) => (
               <button
@@ -255,7 +255,7 @@ export default function AuthScreen() {
             ))}
           </div>
 
-          {/* Verification success */}
+         
           {verificationSent && activeTab === 'signup' && (
             <div className="mb-5 p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-start gap-3">
               <MailCheck className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
@@ -268,7 +268,7 @@ export default function AuthScreen() {
             </div>
           )}
 
-          {/* LOGIN FORM */}
+          
           {activeTab === 'login' && (
             <form onSubmit={loginForm.handleSubmit(handleLogin)} className="space-y-4 fade-in">
               <div>
@@ -489,7 +489,7 @@ export default function AuthScreen() {
                 )}
               </div>
 
-              {/* Email verification notice */}
+              
               <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
                 <p className="text-amber-800 text-xs leading-relaxed">

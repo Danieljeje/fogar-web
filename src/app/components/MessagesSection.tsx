@@ -12,9 +12,7 @@ function formatDate(createdAt: string): string {
   return new Date(createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
-// Simple polling every 5s while a thread is open — this is a REST-based chat,
-// not WebSockets/real-time push. Messages appear within ~5s, not instantly.
-// Swap this for STOMP/SockJS later if instant delivery becomes a requirement.
+
 const POLL_INTERVAL_MS = 5000;
 
 export default function MessagesSection() {

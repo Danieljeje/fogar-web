@@ -42,18 +42,14 @@ export interface MemberCountResponse {
 }
 
 export const userService = {
-  /**
-   * Register user after Firebase signup
-   */
+  
   register(payload: RegisterUserPayload): Promise<User> {
     return apiRequest<User>("/api/users/register", {
       method: "POST",
       body: payload,
     });
   },
-  /**
- * Admin invites a new member
- */
+
 inviteMember(payload: InviteMemberPayload): Promise<User> {
   return apiRequest<User>("/api/users/invite", {
     method: "POST",
@@ -61,31 +57,22 @@ inviteMember(payload: InviteMemberPayload): Promise<User> {
   });
 },
 
-  /**
-   * Logged in user
-   */
+
   getCurrentUser(): Promise<User> {
     return apiRequest<User>("/api/users/me");
   },
 
-  /**
-   * Admin - all users
-   */
+  
   getAllUsers(): Promise<User[]> {
     return apiRequest<User[]>("/api/users");
   },
 
-  /**
-   * Single user
-   */
+  
   getUserById(id: number): Promise<User> {
     return apiRequest<User>(`/api/users/${id}`);
   },
 
-  /**
-   * Update member
-   * Requires PUT /api/users/{id}
-   */
+  
   updateUser(id: number, payload: UpdateUserPayload): Promise<User> {
     return apiRequest<User>(`/api/users/${id}`, {
       method: "PUT",
@@ -93,35 +80,25 @@ inviteMember(payload: InviteMemberPayload): Promise<User> {
     });
   },
 
-  /**
-   * Delete member
-   */
+ 
   deleteUser(id: number): Promise<void> {
     return apiRequest<void>(`/api/users/${id}`, {
       method: "DELETE",
     });
   },
 
-  /**
-   * Dashboard member count
-   */
+
   countMembers(): Promise<MemberCountResponse> {
     return apiRequest<MemberCountResponse>("/api/users/count");
   },
 
-  /**
-   * Departments
-   * Requires GET /api/users/departments
-   */
+  
   getDepartments(): Promise<string[]> {
     return apiRequest<string[]>("/api/users/departments");
   },
 };
 
-/**
- * Compatibility exports
- * Existing components can continue using these.
- */
+
 
 export const fetchMembers = async () => {
   const members = await userService.getAllUsers();
