@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import AdminKPIGrid from './AdminKPIGrid';
 import MemberManagementTable from './MemberManagementTable';
-import RosterCoverageChart from './RosterCoverageChart';
+import ShiftStatusChart from './ShiftStatusChart';
 import DepartmentVolunteerChart from './DepartmentVolunteerChart';
 import MediaLibraryGrid from './MediaLibraryGrid';
 import { useSearchParams } from 'next/navigation';
@@ -73,7 +73,7 @@ useEffect(() => {
       {/* Section content */}
       {activeSection === 'overview' && (
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 gap-6">
-          <RosterCoverageChart />
+         <ShiftStatusChart />
           <DepartmentVolunteerChart />
         </div>
       )}
