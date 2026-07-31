@@ -19,8 +19,8 @@ interface SidebarProps {
 // not touched here, since only the admin sidebar badges were flagged.
 const memberNavItems = [
   { key: 'nav-dashboard', label: 'My Dashboard', href: '/member-dashboard?tab=overview', icon: Home, badge: null },
-  { key: 'nav-roster', label: 'My Roster', href: '/member-dashboard?tab=roster', icon: Calendar, badge: 'null' },
-  { key: 'nav-prayer', label: 'Prayer Vault', href: '/member-dashboard?tab=prayer', icon: Heart, badge: 'null' },
+  { key: 'nav-roster', label: 'My Roster', href: '/member-dashboard?tab=roster', icon: Calendar, badge: null },
+  { key: 'nav-prayer', label: 'Prayer Vault', href: '/member-dashboard?tab=prayer', icon: Heart, badge: null },
   { key: 'nav-messages', label: 'Messages', href: '/messages', icon: MessageCircle, badge: null },
   { key: 'nav-media', label: 'Sermon Archive', href: '/member-dashboard?tab=media', icon: Play, badge: null },
   { key: 'nav-profile', label: 'My Profile', href: '/member-dashboard?tab=profile', icon: User, badge: null },
